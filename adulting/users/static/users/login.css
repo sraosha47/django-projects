@@ -169,10 +169,6 @@
     height: auto;
   }
 
-  .password{
-    width: 45%;
-  }
-
   table { 
     display: flex;
     flex-direction: column;
