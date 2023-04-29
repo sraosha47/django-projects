@@ -5,7 +5,9 @@
 {% block content %}
 {% include 'budgets/navigation.html' %}
 <h1>Budgets</h1>
-{% if budget_list %}
+{% if message %}
+<div>{{ message }}</div>
+{% elif budget_list %}
     <table>
         <tr>
             <th>Description</th>
