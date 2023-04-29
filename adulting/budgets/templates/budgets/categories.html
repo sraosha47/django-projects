@@ -1,0 +1,14 @@
+{% extends 'budgets/layout.html' %}
+
+{% block title %}Categories{% endblock title %}
+
+{% block content %}
+{% include 'budgets/navigation.html' %}
+<h1>{{budget.budget_text}}</h1>
+
+<ul>
+{% for category in budget.category_set.all  %}
+    <li><a href=" {% url 'budgets:entries' category.id %} ">{{ category.category_text}}</a></li>
+{% endfor %}
+</ul>
+{% endblock content %}
