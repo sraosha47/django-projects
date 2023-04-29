@@ -13,11 +13,14 @@ def index(request, username):
         return render(request, "users/login.html", {
                 "message": "Access denied. You need to log in first."
             })
+    elif not username == request.user.username:
+        return render(request, "budgets/index.html", {
+            "message": "Access denied. These are not the budgets you're looking for."
+        })
     else:
         budget_list = Budget.objects.filter(owner = request.user)
         context = {
-            "budget_list": budget_list,
-            "username": username
+            "budget_list": budget_list
         }
         return render(request, "budgets/index.html", context)
 
