@@ -21,7 +21,6 @@ def index(request, username):
         }
         return render(request, "budgets/index.html", context)
 
-
 class CategoriesView(generic.DetailView):
     model = Budget
     template_name = "budgets/categories.html"
