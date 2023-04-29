@@ -1,7 +1,7 @@
 <nav id="navbar" class="nav">
     <ul class="nav-list">
         <li><a href=" {% url 'users:index' %} ">Home</a></li>
-        <li><a href=" {% url 'budgets:index' %} ">Budgets</a></li>
+        <li><a href=" {% url 'budgets:index' username=user.username %} ">Budgets</a></li>
         
     </ul>
     <ul class="modnav"> 
