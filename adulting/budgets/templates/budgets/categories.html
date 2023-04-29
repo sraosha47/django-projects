@@ -6,9 +6,15 @@
 {% include 'budgets/navigation.html' %}
 <h1>{{budget.budget_text}}</h1>
 
-<ul>
+<table>
+    <tr>
+        <th>Description</th>
+    </tr>
 {% for category in budget.category_set.all  %}
-    <li><a href=" {% url 'budgets:entries' category.id %} ">{{ category.category_text}}</a></li>
+    <tr>
+        <td><a href=" {% url 'budgets:entries' category.id %} ">{{ category.category_text}}</a></td>
+        <td><button><a href="" class="button">Edit</a></button></td>
+    </tr>
 {% endfor %}
-</ul>
+</table>
 {% endblock content %}

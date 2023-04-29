@@ -6,9 +6,18 @@
 {% include 'budgets/navigation.html' %}
 <h1>{{category.category_text}}</h1>
 
-<ul>
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Costs</th>
+    </tr>
 {% for entry in category.entry_set.all  %}
-    <li><a href=" ">{{ entry.entry_text}} - Costs: sFr. {{ entry.costs }}.-</a></li>
+    <tr>
+        <td><a href=" ">{{ entry.entry_text}}</a></td>
+        <td>sFr. {{ entry.costs }}.-</td>
+        <td><button><a href="" class="button">Edit</a></button></td>
+    </tr>
 {% endfor %}
-</ul>
+</table>
+
 {% endblock content %}

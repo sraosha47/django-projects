@@ -6,11 +6,21 @@
 {% include 'budgets/navigation.html' %}
 <h1>Budgets</h1>
 {% if budget_list %}
-    <ul>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Funds</th>
+            <th>Timeperiod</th>
+        </tr>
     {% for budget in budget_list  %}
-        <li><a href=" {% url 'budgets:categories' pk=budget.id name=budget.budget_text %} ">{{ budget.budget_text}} | Funds: sFr. {{budget.funds}}.- | Period: {{budget.start_date}} - {{budget.end_date}}</a></li>
+        <tr>
+            <td><a href=" {% url 'budgets:categories' pk=budget.id name=budget.budget_text %} ">{{ budget.budget_text}}<a/></td>
+            <td>sFr. {{budget.funds}}.-</td>
+            <td>{{budget.start_date}} - {{budget.end_date}}</td>
+            <td><button><a href="" class="button">Edit</a></button></td>
+        </tr>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>No budgets are available.</p>
 {% endif %}
