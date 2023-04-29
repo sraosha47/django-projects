@@ -1,12 +1,11 @@
 <nav id="navbar" class="nav">
     <ul class="nav-list">
-        <li><a href="account_management.php">Account Management</a></li>
-        <li><a href="library_management.php">Library Management</a></li>
-        <li><a href="rentals.php">Rentals</a></li>
-        <li><a href=" {% url 'users:logout' %} ">Log Out</a></li> 
+        <li><a href=" {% url 'users:index' %} ">Home</a></li>
+        <li><a href=" {% url 'budgets:index' %} ">Budgets</a></li>
+        
     </ul>
     <ul class="modnav"> 
-        <li><a href="#accounts">Accounts</a></li>
-        <li><a href="#formfields">Add New Account</a></li> 
+        <li><a href="#accounts">Account</a></li>
+        <li><a href=" {% url 'users:logout' %} ">Log Out</a></li> 
     </ul>
 </nav>
