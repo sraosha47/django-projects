@@ -8,7 +8,7 @@
 {% if budget_list %}
     <ul>
     {% for budget in budget_list  %}
-        <li><a href="">{{ budget.budget_text}}</a></li>
+        <li><a href=" {% url 'budgets:categories' pk=budget.id name=budget.budget_text %} ">{{ budget.budget_text}} | Funds: sFr. {{budget.funds}}.- | Period: {{budget.start_date}} - {{budget.end_date}}</a></li>
     {% endfor %}
     </ul>
 {% else %}
