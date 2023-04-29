@@ -4,7 +4,7 @@ from django.views import generic
 
 
 from .models import Budget
-#from django.contrib.auth.models import User 
+from django.contrib.auth.models import User 
 
 # Create your views here.
 """
@@ -24,6 +24,7 @@ def index(request):
 class IndexView(generic.ListView):
     template_name = "budgets/index.html"
     context_object_name = "budget_list"
+    
 
     def get_queryset(self):
-        return Budget.objects.all()  
+        return Budget.objects.filter(owner = self.request.user) 
