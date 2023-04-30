@@ -10,11 +10,13 @@
 {% elif category_list %}
     <table>
         <tr>
-            <th>Categories</th>
+            <th>{{budget_name}}</th>
         </tr>
     {% for category in category_list  %}
         <tr>
-            <td><a href=" {% url 'budgets:entries' category_name=category.category_text username=user.username %} ">{{ category.category_text}}</a></td>
+            <td>
+                <a href=" {% url 'budgets:entries' username=user.username category_name=category.category_text category_id=category.id %} ">{{ category.category_text}}</a>
+            </td>
             <td class="btn_anker"><a href="{% url 'users:index' %}" >Edit</a></td>
     {% endfor %}
     </table>

@@ -16,7 +16,7 @@
         </tr>
     {% for budget in budget_list  %}
         <tr>
-            <td><a href=" {% url 'budgets:categories' budget_name=budget.budget_text username=user.username %} ">{{ budget.budget_text}}<a/></td>
+            <td><a href=" {% url 'budgets:categories' username=user.username budget_id=budget.id budget_name=budget.budget_text %} ">{{ budget.budget_text}}<a/></td>
             <td>sFr. {{budget.funds}}.-</td>
             <td>{{budget.start_date}} - {{budget.end_date}}</td>
             <div class="btn_hover">
