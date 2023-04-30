@@ -11,11 +11,13 @@
     <table>
         <tr>
             <th>Entries</th>
+            <th>Costs</th>
         </tr>
     {% for entry in entry_list  %}
         <tr>
-            <td><a href="  ">{{ entry.entry_text}}</a></td>
-            <td><button><a href="" class="button">Edit</a></button></td>
+            <td>{{ entry.entry_text}}</td>
+            <td>sFr. {{entry.costs}}.-</td>
+            <td class="btn_anker"><a href="{% url 'users:index' %}" >Edit</a></td>
         </tr>
     {% endfor %}
     </table>

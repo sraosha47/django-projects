@@ -15,8 +15,7 @@
     {% for category in category_list  %}
         <tr>
             <td><a href=" {% url 'budgets:entries' category_name=category.category_text username=user.username %} ">{{ category.category_text}}</a></td>
-            <td><button><a href="" class="button">Edit</a></button></td>
-        </tr>
+            <td class="btn_anker"><a href="{% url 'users:index' %}" >Edit</a></td>
     {% endfor %}
     </table>
 {% else %}

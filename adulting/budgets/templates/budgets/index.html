@@ -19,7 +19,9 @@
             <td><a href=" {% url 'budgets:categories' budget_name=budget.budget_text username=user.username %} ">{{ budget.budget_text}}<a/></td>
             <td>sFr. {{budget.funds}}.-</td>
             <td>{{budget.start_date}} - {{budget.end_date}}</td>
-            <td><button><a href="" class="button">Edit</a></button></td>
+            <div class="btn_hover">
+            <td class="btn_anker"><a href="{% url 'users:index' %}" >Edit</a></td>
+            </div>
         </tr>
     {% endfor %}
     </table>
