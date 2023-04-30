@@ -4,16 +4,19 @@
 
 {% block content %}
 {% include "users/login_banner.html" %}
+
     <h1>Log In</h1>
 
     {% if message %}
-        <div>{{ message }}</div>
+        <div class="message">{{ message }}</div>
     {% endif %}
 
     <form action="{% url 'users:login' %}" method="post">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
+        <label for="username">Username</label>
+        <input type="text" name="username">
+        <label for="password">Password</label>
+        <input type="password" name="password">
         <input type="submit" value="Login">
     </form>
 {% endblock %}
