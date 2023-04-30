@@ -87,9 +87,11 @@
   }
   
   h1,
-  h2 {
+  h2,
+  p {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
+    padding: 3rem;
     text-align: center;
   }
   
@@ -175,6 +177,13 @@
     width: auto;
     height: auto;
   }
+
+  table,
+  th,
+  td{
+    border: 0.2rem solid var(--main-black);
+  }
+
 
   table { 
     display: flex;
