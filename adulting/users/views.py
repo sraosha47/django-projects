@@ -1,7 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
 from django.http import  HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -29,3 +31,11 @@ def logout_view(request):
     return render(request, "users/login.html", {
         "message": "Logged out."
     })
+
+def account_view(request, username):
+    account = get_object_or_404(User, pk=request.user.id)
+    context ={
+        "account": account,
+        "username": username
+    }
+    return render(request, "users/account.html", context)
