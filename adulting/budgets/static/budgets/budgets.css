@@ -131,18 +131,21 @@
     width: fit-content;
   }
 
-  .button {
-    font: bold 11px Arial;
+
+
+  .btn_anker a{
+    font: bold 16px 'Verdana';
     text-decoration: none;
-    background-color: #EEEEEE;
-    color: #333333;
-    padding: 2px 6px 2px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
-    border-radius: 4px;
+    border: none;
+    color: var(--main-black);
+
   }
+
+  .btn_anker a:hover{
+    color: var(--main-blue);
+  }
+
+
 
   .buttons{
     display: flex;
