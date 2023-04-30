@@ -1,30 +1,33 @@
 {% extends 'users/layout.html' %}
 
-{% block title %}{% endblock title %}
+{% block title %}Account | {{username}}{% endblock title %}
 
 {% block content %}
 {% include "users/navigation.html" %}
 
 <h1>{{username}}</h1>
 
-<table>
-    <tr>
-        <th>Username:</th>
-        <td>{{ account.username }}</td>
-    </tr>
-    <tr>
-        <th>First Name:</th>
-        <td>{{ account.first_name }}</td>
-    </tr>
-    <tr>
-        <th>Last Name:</th>
-        <td>{{ account.last_name }}</td>
-    </tr>
-    <tr>
-        <th>Email:</th>
-        <td>{{ account.email }}</td>
-    </tr>
-</table>
+{% if message %}
+    <div class="message"><strong>{{message}}</strong></div>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="user">Username</label>
+    <input type="text" name="username" id="username" value="{{username}}">
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" id="first_name" value="{{account.first_name}}">
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" id="last_name" value="{{account.last_name}}">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" value="{{account.email}}">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <fieldset>
+        <input type="submit" value="Save"> <input type="reset" value="Cancel">
+    </fieldset>
+
+</form>
 
 
 {% endblock content %}
