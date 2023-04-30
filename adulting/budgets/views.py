@@ -24,7 +24,7 @@ def index(request, username):
         }
         return render(request, "budgets/index.html", context)
 
-def categories(request, budget_name, username):
+def categories(request, username, budget_name, budget_id):
     if not request.user.is_authenticated:
         return render(request, "users/login.html", {
                 "message": "Access denied. You need to log in first."
@@ -34,16 +34,14 @@ def categories(request, budget_name, username):
             "message": "Access denied. These are not the budgets you're looking for."
         })
     else:
-        budget_id = Budget.objects.filter(budget_text=budget_name)[0].id
         category_list = Category.objects.filter(budget_id=budget_id)
-        budget_name=budget_name
         context = {
             "category_list": category_list,
             "budget_name": budget_name
         }
         return render(request, "budgets/categories.html", context)
 
-def entries(request, category_name, username):
+def entries(request, username, category_name, category_id):
     if not request.user.is_authenticated:
         return render(request, "users/login.html", {
                 "message": "Access denied. You need to log in first."
@@ -53,9 +51,7 @@ def entries(request, category_name, username):
             "message": "Access denied. These are not the budgets you're looking for."
         })
     else:
-        category_id = Category.objects.filter(category_text=category_name)[0].id
         entry_list = Entry.objects.filter(category_id=category_id)
-        category_name=category_name
         context = {
             "entry_list": entry_list,
             "category_name": category_name
