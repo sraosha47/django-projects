@@ -5,7 +5,7 @@
         
     </ul>
     <ul class="modnav"> 
-        <li><a href="#accounts">Account</a></li>
+        <li><a href=" {% url 'users:account' username=user.username %}">Account</a></li>
         <li><a href=" {% url 'users:logout' %} ">Log Out</a></li> 
     </ul>
 </nav>
