@@ -1,12 +1,26 @@
 {% extends "users/layout.html" %}
 
+{% block title %}Home{% endblock title %}
+
 {% block content %}
 {% include "users/navigation.html" %}
-    <h1>Welcome, {{ request.user.first_name }}</h1>
 
-    <h2>
-        The intent of this project is to offer applications that help you with all the boring, tedious stuff that comes with adulthood. You know...responsibilities.
-    </h2>
-    <p>At the moment, the only app available is the budget app. <br> Home will bring you back to this page. <br> Account gives you an overview of your account and also allows you to edit information.</p>
+<h1>Welcome, {{ request.user.first_name }}</h1>
+
+<table>
+    <tr>
+        <td>
+            <p>
+                The intent of this project is to offer applications that help you with all the boring, tedious stuff that comes with adulthood. You know...responsibilities.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>At the moment, the only app available is the budget app. <br> Home will bring you back to this page. <br> Account gives you an overview of your account and also allows you to edit information.</p>
+        </td>
+    </tr>
+</table>
+
 
 {% endblock %}
