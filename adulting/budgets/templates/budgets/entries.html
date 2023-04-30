@@ -1,23 +1,25 @@
 {% extends 'budgets/layout.html' %}
 
-{% block title %}Entries{% endblock title %}
+{% block title %}{{category_name}}{% endblock title %}
 
 {% block content %}
 {% include 'budgets/navigation.html' %}
-<h1>{{category.category_text}}</h1>
-
-<table>
-    <tr>
-        <th>Description</th>
-        <th>Costs</th>
-    </tr>
-{% for entry in category.entry_set.all  %}
-    <tr>
-        <td><a href=" ">{{ entry.entry_text}}</a></td>
-        <td>sFr. {{ entry.costs }}.-</td>
-        <td><button><a href="" class="button">Edit</a></button></td>
-    </tr>
-{% endfor %}
-</table>
-
+<h1>{{category_name}}</h1>
+{% if message %}
+    <div>{{ message }}</div>
+{% elif entry_list %}
+    <table>
+        <tr>
+            <th>Entries</th>
+        </tr>
+    {% for entry in entry_list  %}
+        <tr>
+            <td><a href="  ">{{ entry.entry_text}}</a></td>
+            <td><button><a href="" class="button">Edit</a></button></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No entries available.</p>
+{% endif %}
 {% endblock content %}
