@@ -39,3 +39,11 @@ def account_view(request, username):
         "username": username
     }
     return render(request, "users/account.html", context)
+
+def create_view(request):
+    if request.user.is_superuser:
+        return render(request, "users/new_user.html")
+    else:
+        return render(request, "users/user.html", {
+            "message": "You shall not pass."
+        })
