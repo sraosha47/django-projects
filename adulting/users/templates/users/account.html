@@ -24,9 +24,12 @@
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
     <fieldset>
-        <input type="submit" value="Save"> <input type="reset" value="Cancel">
+        <input type="submit" value="Save"> 
+        <input type="reset" value="Cancel">
+        {% if request.user.is_superuser %}
+        <button type="button"> <a href="{% url 'users:create' %}" class="button">Create New User</a></button>      
+        {% endif %}
     </fieldset>
-
 </form>
 
 
