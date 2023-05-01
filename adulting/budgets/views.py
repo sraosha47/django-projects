@@ -1,14 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 #from django.urls import reverse
-from django.views import generic
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 from .models import Budget, Category, Entry
 
 # Create your views here.
 
+# View showing list of all budgets of the user
 def index(request, username):
-    
     if not request.user.is_authenticated:
         return render(request, "users/login.html", {
                 "message": "Access denied. You need to log in first."
@@ -24,6 +23,7 @@ def index(request, username):
         }
         return render(request, "budgets/index.html", context)
 
+# View listing all the categories of a specific budget
 def categories(request, username, budget_name, budget_id):
     if not request.user.is_authenticated:
         return render(request, "users/login.html", {
@@ -41,6 +41,7 @@ def categories(request, username, budget_name, budget_id):
         }
         return render(request, "budgets/categories.html", context)
 
+# View showing all the entries of a category
 def entries(request, username, category_name, category_id):
     if not request.user.is_authenticated:
         return render(request, "users/login.html", {
