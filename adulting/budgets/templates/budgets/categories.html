@@ -1,4 +1,5 @@
 {% extends 'budgets/layout.html' %}
+{% load budgets_extras %}
 
 {% block title %}{{budget_name}}{% endblock title %}
 
@@ -10,13 +11,15 @@
 {% elif category_list %}
     <table>
         <tr>
-            <th colspan="2">{{budget_name}}</th>
+            <th>Categories</th>
+            <th colspan="2">Costs</th>
         </tr>
     {% for category in category_list  %}
         <tr>
             <td>
                 <a href=" {% url 'budgets:entries' username=user.username category_name=category.category_text category_id=category.id %} ">{{ category.category_text}}</a>
             </td>
+            <td>sFr. {% get_category_costs category %}.-</td>
             <td class="btn_anker"><a href="{% url 'users:index' %}" >Edit</a></td>
     {% endfor %}
     </table>
