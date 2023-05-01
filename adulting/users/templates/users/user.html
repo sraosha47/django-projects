@@ -7,6 +7,10 @@
 
 <h1>Welcome, {{ request.user.first_name }}</h1>
 
+{% if message %}
+    <div class="message"><strong>{{message}}</strong></div>
+{% endif %}
+
 <table>
     <tr>
         <td>
