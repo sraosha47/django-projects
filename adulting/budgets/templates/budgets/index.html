@@ -1,4 +1,5 @@
 {% extends 'budgets/layout.html' %}
+{% load budgets_extras %}
 
 {% block title %}Budgets{% endblock title %}
 
@@ -12,16 +13,19 @@
         <tr>
             <th>Description</th>
             <th>Funds</th>
+            <th>Costs</th>
+            <th>Savings</th>
             <th colspan="2">Timeperiod</th>
         </tr>
     {% for budget in budget_list  %}
         <tr>
             <td><a href=" {% url 'budgets:categories' username=user.username budget_id=budget.id budget_name=budget.budget_text %} ">{{ budget.budget_text}}<a/></td>
             <td>sFr. {{budget.funds}}.-</td>
+            <td>sFr. {% get_budget_costs budget %}.-</td>
+            <td>sFr.{% get_savings budget %}</td>
             <td>{{budget.start_date}} - {{budget.end_date}}</td>
             <div class="btn_hover">
             <td class="btn_anker"><a href="{% url 'users:index' %}" >Edit</a></td>
-            </div>
         </tr>
     {% endfor %}
     </table>
