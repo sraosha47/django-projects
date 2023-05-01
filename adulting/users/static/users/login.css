@@ -188,7 +188,7 @@
   table,
   th,
   td{
-    border: 0.2rem solid var(--main-black);
+    border: none;
   }
 
   table { 
