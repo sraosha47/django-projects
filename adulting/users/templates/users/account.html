@@ -11,7 +11,7 @@
     <div class="message"><strong>{{message}}</strong></div>
 {% endif %}
 
-<form action="" method="post">
+<form action=" {% url 'users:change' %} " method="post">
     {% csrf_token %}
     <label for="user">Username</label>
     <input type="text" name="username" id="username" value="{{username}}">
@@ -23,6 +23,8 @@
     <input type="email" name="email" id="email" value="{{account.email}}">
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
+    <label for="confirmation">Confirm Password</label>
+    <input type="password" name="confirmation" id="confirmation">
     <fieldset>
         <input type="submit" value="Save"> 
         <input type="reset" value="Cancel">
