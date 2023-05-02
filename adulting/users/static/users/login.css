@@ -116,6 +116,18 @@
   fieldset{
     border: none;
   }
+
+  .field-col{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove var(--main-black);
+  } 
   
   textarea{
     width: 100%;
