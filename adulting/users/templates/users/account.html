@@ -13,8 +13,8 @@
 
 <form action=" {% url 'users:change' %} " method="post">
     {% csrf_token %}
-    <label for="user">Username</label>
-    <input type="text" name="username" id="username" value="{{username}}">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" value="{{username}}" required>
     <label for="first_name">First Name</label>
     <input type="text" name="first_name" id="first_name" value="{{account.first_name}}">
     <label for="last_name">Last Name</label>
@@ -29,7 +29,7 @@
         <input type="submit" value="Save"> 
         <input type="reset" value="Cancel">
         {% if request.user.is_superuser %}
-        <button type="button"> <a href="{% url 'users:create' %}" class="button">Create New User</a></button>      
+        <button type="button"> <a href="{% url 'users:newuser' %}" class="button">Create New User</a></button>      
         {% endif %}
     </fieldset>
 </form>
