@@ -32,6 +32,12 @@ def logout_view(request):
         "message": "Logged out."
     })
 
+def register_view(request):
+    if not request.user.is_authenticated:
+        return render(request, "users/new_user.html")
+    else:
+        return render(request, "users/user.html")
+
 def account_view(request, username):
     if not request.user.is_authenticated:
         return render(request, "users/login.html", {
