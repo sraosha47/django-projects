@@ -3,36 +3,61 @@
 {% block title %}Account | {{username}}{% endblock title %}
 
 {% block content %}
-{% include "users/navigation.html" %}
+    {% if request.user.is_superuser %}
+    {% include "users/nav_adm.html" %}
+    {% else %}
+    {% include "users/navigation.html" %}
+    {% endif %}
+    <div class="content" id="account">
+        <h1>{{username}}</h1>
 
-<h1>{{username}}</h1>
-
-{% if message %}
-    <div class="message"><strong>{{message}}</strong></div>
-{% endif %}
-
-<form action=" {% url 'users:change' %} " method="post">
-    {% csrf_token %}
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" value="{{username}}" required>
-    <label for="first_name">First Name</label>
-    <input type="text" name="first_name" id="first_name" value="{{account.first_name}}">
-    <label for="last_name">Last Name</label>
-    <input type="text" name="last_name" id="last_name" value="{{account.last_name}}">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" value="{{account.email}}">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <label for="confirmation">Confirm Password</label>
-    <input type="password" name="confirmation" id="confirmation">
-    <fieldset>
-        <input type="submit" value="Save"> 
-        <input type="reset" value="Cancel">
-        {% if request.user.is_superuser %}
-        <button type="button"> <a href="{% url 'users:newuser' %}" class="button">Create New User</a></button>      
+        {% if message %}
+            <div class="message"><strong>{{message}}</strong></div>
         {% endif %}
-    </fieldset>
-</form>
 
-
+        <form action=" {% url 'users:change' %} " method="post">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" value="{{username}}" required>
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name" value="{{account.first_name}}">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name" value="{{account.last_name}}">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="{{account.email}}">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <label for="confirmation">Confirm Password</label>
+            <input type="password" name="confirmation" id="confirmation">
+            <fieldset>
+                <input type="submit" value="Save"> 
+                <input type="reset" value="Cancel">
+            </fieldset>
+        </form>
+    </div>
 {% endblock content %}
+
+{% if request.user.is_superuser %}
+    {% block addons %}
+
+    <section class="content" id="accounts"> 
+        <h2>Accounts</h2>
+
+        <table>
+            <tr>
+                <td>Username</td>
+                <td colspan="2">Email</td>
+            </tr>
+            {% for account in accounts  %}
+            <tr>
+                <td>{{account.username}}</td>
+                <td>{{account.email}}</td>
+                <td class="tanker"><a href="{% url 'users:account' username=account.username %}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </section>
+
+    {% endblock addons %}
+{% endif %}
