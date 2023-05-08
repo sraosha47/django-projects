@@ -3,7 +3,12 @@
 {% block title %}Register{% endblock title %}
 
 {% block content %}
+{% if request.user.is_authenticated %}
 {% include "users/navigation.html" %}
+{% else %}
+{% include "users/login_banner.html" %}
+{% endif %}
+
 
 <h1>Register</h1>
 
@@ -21,6 +26,7 @@
         <input type="password" name="password" id="password" required>
         <label for="confirmation">Confirm Password</label>
         <input type="password" name="confirmation" id="confirmation" required>
+        {% if request.user.is_superuser %}
         <fieldset>
             <legend>Superuser</legend>
             <input type="radio" name="superuser" id="yes" value="YES" required>
@@ -28,6 +34,9 @@
             <input type="radio" name="superuser" id="no" value="NO" required>
             <label for="no">No</label>            
         </fieldset>
+        {% else %}
+        <input type="hidden" name="superuser" id="no" value="NO">       
+        {% endif %}
     
     </fieldset>
     <fieldset class="field-col">
