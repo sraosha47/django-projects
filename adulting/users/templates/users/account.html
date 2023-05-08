@@ -37,9 +37,9 @@
     </div>
 {% endblock content %}
 
-{% if request.user.is_superuser %}
-    {% block addons %}
 
+    {% block addons %}
+    {% if request.user.is_superuser %}
     <section class="content" id="accounts"> 
         <h2>Accounts</h2>
 
@@ -58,6 +58,5 @@
         </table>
 
     </section>
-
+    {% endif %}
     {% endblock addons %}
-{% endif %}
