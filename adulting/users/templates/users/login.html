@@ -17,8 +17,10 @@
         <input type="text" name="username">
         <label for="password">Password</label>
         <input type="password" name="password">
-        <input type="submit" value="Login">
-        <button type="button"> <a href="{% url 'users:register' %}" class="button">Register</a></button>
+        <fieldset>
+            <input type="submit" value="Login">
+            <button type="button"> <a href="{% url 'users:register' %}" class="button">Register New Account</a></button>
+        </fieldset>
     </form>
 
 {% endblock %}
