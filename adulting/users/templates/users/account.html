@@ -4,9 +4,9 @@
 
 {% block content %}
     {% if request.user.is_superuser %}
-    {% include "users/nav_adm.html" %}
+        {% include "users/nav_adm.html" %}
     {% else %}
-    {% include "users/navigation.html" %}
+        {% include "users/navigation.html" %}
     {% endif %}
     <div class="content" id="account">
         <h1>{{username}}</h1>
@@ -38,7 +38,7 @@
 {% endblock content %}
 
 
-    {% block addons %}
+{% block addons %}
     {% if request.user.is_superuser %}
     <section class="content" id="accounts"> 
         <h2>Accounts</h2>
@@ -59,4 +59,4 @@
 
     </section>
     {% endif %}
-    {% endblock addons %}
+{% endblock addons %}
