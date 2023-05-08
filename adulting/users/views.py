@@ -48,9 +48,11 @@ def account_view(request, username):
             "message": "Access denied. That's not your account."
         })
     else:
-        account = get_object_or_404(User, pk=request.user.id)
+        account = User.objects.filter(username=username)[0] 
+        accounts = User.objects.all()
         context ={
             "account": account,
+            "accounts": accounts,
             "username": username
         }
         return render(request, "users/account.html", context)
