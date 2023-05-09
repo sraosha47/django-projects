@@ -38,7 +38,7 @@ It contains following views:
 An app allowing the creation of budgets with categories and entries. Each budget cointains a description/name, initial funds, and start and end date.
 They're linked to freely creatable categories which are linked to entries, which are accompanied with costs.
 
-So far it is view only though. It shows manually created budgets with categories and entries and also shows the costs and current savings. The views handling the creation of new, and the editing of existing budgets aren't implemented yet.
+So far it is view only though. It shows manually created budgets with categories and entries and also shows the costs and current savings. The views handling the creation of new, and the editing of existing budgets aren't implemented yet. The calculations of costs and savings needed some additional Django tags which can be found under [budgets_extras.py](https://github.com/sraosha47/django-projects/blob/main/adulting/budgets/templatetags/budgets_extras.py).
 
 It contains following views:
 * Index - Shows a list of the users budgets
