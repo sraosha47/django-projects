@@ -19,7 +19,7 @@ So far it conains following apps:
 
 #### [Users](https://github.com/sraosha47/django-projects/tree/main/adulting/users)
 
-This app handles the ceation of new users, logging in, logging out, and viewing and edditing ones own account. 
+This app handles the creation of new users, logging in, logging out, and viewing and edditing ones own account. 
 It also allows superusers to see and edit other accounts and create new superusers.
 
 
