@@ -9,7 +9,7 @@ from .models import Budget, Category, Entry
 # View showing list of all budgets of the user
 def index(request, username):
     if not request.user.is_authenticated:
-        return render(request, "users/login.html", {
+        return render(request, "login/login.html", {
                 "message": "Access denied. You need to log in first."
             })
     elif not username == request.user.username:
@@ -26,7 +26,7 @@ def index(request, username):
 # View listing all the categories of a specific budget
 def categories(request, username, budget_name, budget_id):
     if not request.user.is_authenticated:
-        return render(request, "users/login.html", {
+        return render(request, "login/login.html", {
                 "message": "Access denied. You need to log in first."
             })
     elif not username == request.user.username:
@@ -44,7 +44,7 @@ def categories(request, username, budget_name, budget_id):
 # View showing all the entries of a category
 def entries(request, username, category_name, category_id):
     if not request.user.is_authenticated:
-        return render(request, "users/login.html", {
+        return render(request, "login/login.html", {
                 "message": "Access denied. You need to log in first."
             })
     elif not username == request.user.username:

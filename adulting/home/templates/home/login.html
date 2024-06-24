@@ -1,25 +1,25 @@
-{% extends "users/layout.html" %}
+{% extends "home/layout.html" %}
 
 {% block title %}Login{% endblock title %}
 
 {% block content %}
-{% include "users/login_banner.html" %}
+{% include "home/login_banner.html" %}
 
-    <h1>Log In</h1>
+    <h1>How do you do, fellow kids.</h1>
 
     {% if message %}
         <div class="message">{{ message }}</div>
     {% endif %}
 
-    <form action="{% url 'users:login' %}" method="post">
+    <form action="{% url 'home:login' %}" method="post">
         {% csrf_token %}
         <label for="username">Username</label>
         <input type="text" name="username">
         <label for="password">Password</label>
         <input type="password" name="password">
         <fieldset>
-            <input type="submit" value="Login">
-            <button type="button"> <a href="{% url 'users:register' %}" class="button">Register New Account</a></button>
+            <input type="submit" value="Sign In">
+            <button type="button"> <a href="{% url 'home:register' %}" class="button">Register New Account</a></button>
         </fieldset>
     </form>
 

@@ -20,7 +20,7 @@
                 <a href=" {% url 'budgets:entries' username=user.username category_name=category.category_text category_id=category.id %} ">{{ category.category_text}}</a>
             </td>
             <td>sFr. {% get_category_costs category %}.-</td>
-            <td class="btn_anker"><a href="{% url 'users:index' %}" >Edit</a></td>
+            <td class="btn_anker"><a href="{% url 'home:index' %}" >Edit</a></td>
     {% endfor %}
     </table>
 {% else %}

@@ -1,9 +1,9 @@
-{% extends "users/layout.html" %}
+{% extends "home/layout.html" %}
 
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-{% include "users/navigation.html" %}
+{% include "home/navigation.html" %}
 
 <h1>Welcome, {{ request.user.first_name }}</h1>
 

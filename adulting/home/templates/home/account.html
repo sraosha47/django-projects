@@ -1,12 +1,12 @@
-{% extends 'users/layout.html' %}
+{% extends 'home/layout.html' %}
 
 {% block title %}Account | {{username}}{% endblock title %}
 
 {% block content %}
     {% if request.user.is_superuser %}
-        {% include "users/nav_adm.html" %}
+        {% include "home/nav_adm.html" %}
     {% else %}
-        {% include "users/navigation.html" %}
+        {% include "home/navigation.html" %}
     {% endif %}
     <div class="content" id="account">
         <h1>{{username}}</h1>
@@ -15,7 +15,7 @@
             <div class="message"><strong>{{message}}</strong></div>
         {% endif %}
 
-        <form action=" {% url 'users:change' %} " method="post">
+        <form action=" {% url 'home:change' %} " method="post">
             {% csrf_token %}
             <label for="username">Username</label>
             <input type="text" name="username" id="username" value="{{username}}" required>
@@ -52,7 +52,7 @@
             <tr>
                 <td>{{account.username}}</td>
                 <td>{{account.email}}</td>
-                <td class="tanker"><a href="{% url 'users:account' username=account.username %}">Edit</a></td>
+                <td class="tanker"><a href="{% url 'home:account' username=account.username %}">Edit</a></td>
             </tr>
             {% endfor %}
         </table>

@@ -1,12 +1,12 @@
-{% extends 'users/layout.html' %}
+{% extends 'home/layout.html' %}
 
 {% block title %}Register{% endblock title %}
 
 {% block content %}
 {% if request.user.is_authenticated %}
-{% include "users/navigation.html" %}
+{% include "home/navigation.html" %}
 {% else %}
-{% include "users/login_banner.html" %}
+{% include "home/login_banner.html" %}
 {% endif %}
 
 
@@ -16,7 +16,7 @@
     <div class="message"><strong>{{message}}</strong></div>
 {% endif %}
 
-<form action=" {% url 'users:create' %} " method="post">
+<form action=" {% url 'home:create' %} " method="post">
     {% csrf_token %}
     <fieldset class="field-col">
         <legend>Required</legend>
