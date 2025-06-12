@@ -6,7 +6,7 @@ I started this repository for a school project. I basically have to create a thr
 I asked some friends who are actual developers which languages and frameworks I should use. I ignored them all and chose Django. 
 Mainly because I prefer Python to JavaScript or any derivatives of it.
 
-I like it so far and have learned a lot. So I might continue creating new apps for my first project 'Adultung', 
+I like it so far and have learned a lot. So I might continue creating new apps for my first project 'Adulting', 
 or I might even start with some new Django projects. Who knows.
 
 ## Projects
@@ -14,7 +14,7 @@ or I might even start with some new Django projects. Who knows.
 ### [Adulting](https://github.com/sraosha47/django-projects/tree/main/adulting)
 
 A project offering apps that help with all the tedious, boring stuff that comes with adulthood. You know...responsibilities.
-So far it conains following apps:
+So far it contains following apps:
 
 
 #### [Users](https://github.com/sraosha47/django-projects/tree/main/adulting/users)
